@@ -11,7 +11,7 @@ window.addEventListener("scroll", showLogo);
 
     function showLogo (){
             const topPos = myBox.getBoundingClientRect().top;
-            const bottomPos = myBox.getBoundingClientRect().top + myBox.clientWidth;
+            const bottomPos = myBox.getBoundingClientRect().top + myBox.clientHeight;
 
 
 
