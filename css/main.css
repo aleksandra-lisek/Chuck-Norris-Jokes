@@ -1,0 +1,33 @@
+/*.boxes{
+    position: absolute;
+}*/
+
+.box{
+    width: 200px;
+    height: 400px;
+    background-color: black;
+    margin: 5px;
+
+}
+
+.this{
+    background-color: red;
+}
+
+.image{
+    position: fixed;
+    top: 75vh;
+    -ms-transform: translateX(1400px); /* IE 9 */
+    -webkit-transform: translateX(1400px); /* Chrome, Safari, Opera */
+    transform: translateX(1400px);
+}
+
+
+.show{
+    position: fixed;
+    top: 75vh;
+    -ms-transform: translateX(1000px); /* IE 9 */
+    -webkit-transform: translateX(1000px); /* Chrome, Safari, Opera */
+    transform: translateX(1000px);
+
+}
