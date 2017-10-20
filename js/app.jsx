@@ -16,10 +16,10 @@ document.addEventListener('DOMContentLoaded', function() {
         componentDidUpdate(prevProps, prev) {
             if (prev.visible === false && this.state.visible === true) {
                 this.props.upDate(true, "show");
-                // this.props.imgUpDate('show');
+
             } else if (prev.visible === true && this.state.visible === false) {
                 this.props.upDate(false, "image");
-                // this.props.imgUpDate('image');
+
             }
 
         }
@@ -30,19 +30,10 @@ document.addEventListener('DOMContentLoaded', function() {
             const topPos = myBox.getBoundingClientRect().top;
             const bottomPos = myBox.getBoundingClientRect().bottom;
 
-            console.log(topPos);
-            console.log(bottomPos);
-            // const logo = document.getElementById('img');
 
-            if (window.innerHeight > topPos && 0 < bottomPos && this.props.children.includes("can")) {
-                // this.props.upDate(true);
+            if (window.innerHeight > topPos && 0 < bottomPos && this.props.children.includes(" can ")) {
                 this.setState({visible: true});
-
-                // wywołuję funkcję z parenta
-
             } else {
-                // this.props.upDate(false);
-                // logo.classList = 'image';
                 this.setState({visible: false});
 
             }
