@@ -38,10 +38,10 @@ p {
 }
 
 .image {
-    width: 290px;
+    width: 300px;
     height: 200px;
     position: fixed;
-    top: 75vh;
+    top: 73vh;
     -ms-transform: translateX(1400px);
     /* IE 9 */
     -webkit-transform: translateX(1400px);
@@ -50,10 +50,10 @@ p {
 }
 
 .show {
-    width: 290px;
+    width: 300px;
     height: 200px;
     position: fixed;
-    top: 75vh;
+    top: 73vh;
     -ms-transform: translateX(1000px);
     /* IE 9 */
     -webkit-transform: translateX(1000px);
