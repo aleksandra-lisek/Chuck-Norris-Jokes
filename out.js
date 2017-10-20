@@ -9893,6 +9893,11 @@ document.addEventListener('DOMContentLoaded', function () {
                 return _react2.default.createElement(
                     'div',
                     { className: 'jokes' },
+                    _react2.default.createElement(
+                        'h1',
+                        null,
+                        'Jokes About Chuck Norris'
+                    ),
                     jokes,
                     _react2.default.createElement('img', { src: 'http://sgpnarodowy.pl/wp-content/uploads/2014/11/sgp_logo_wirtualnapolska1.png', id: 'img',
                         className: this.state.imgClassName })

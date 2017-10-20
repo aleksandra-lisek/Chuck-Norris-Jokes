@@ -87,6 +87,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 return <Paragraph key={joke.id} upDate={this.updateParagraph}>{joke.joke}</Paragraph>;
             });
             return <div className="jokes">
+                <h1>Jokes About Chuck Norris</h1>
                 {jokes}
                 <img src="http://sgpnarodowy.pl/wp-content/uploads/2014/11/sgp_logo_wirtualnapolska1.png" id="img"
                     className={this.state.imgClassName}/>
