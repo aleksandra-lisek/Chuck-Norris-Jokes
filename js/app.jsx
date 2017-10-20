@@ -52,6 +52,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 imgClassName: 'image',
             }
         }
+
         componentDidMount() {
             fetch(`http://api.icndb.com/jokes`).then(r => r.json()).then(data => {
 
@@ -72,8 +73,6 @@ document.addEventListener('DOMContentLoaded', function() {
         }
 
         render() {
-
-            const background = "wp.png";
             const jokes = this.state.jokes.map(joke => {
                 return <Paragraph key={joke.id} upDate={this.updateParagraph}>{joke.joke}</Paragraph>;
             });

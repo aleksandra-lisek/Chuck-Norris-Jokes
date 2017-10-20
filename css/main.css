@@ -41,7 +41,7 @@ p {
     width: 300px;
     height: 200px;
     position: fixed;
-    top: 73vh;
+    top: 71vh;
     -ms-transform: translateX(1400px);
     /* IE 9 */
     -webkit-transform: translateX(1400px);
@@ -53,7 +53,7 @@ p {
     width: 300px;
     height: 200px;
     position: fixed;
-    top: 73vh;
+    top: 71vh;
     -ms-transform: translateX(1000px);
     /* IE 9 */
     -webkit-transform: translateX(1000px);

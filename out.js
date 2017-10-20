@@ -9871,7 +9871,6 @@ document.addEventListener('DOMContentLoaded', function () {
             value: function render() {
                 var _this5 = this;
 
-                var background = "wp.png";
                 var jokes = this.state.jokes.map(function (joke) {
                     return _react2.default.createElement(
                         Paragraph,
