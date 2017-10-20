@@ -3,85 +3,99 @@ import ReactDOM from 'react-dom';
 
 document.addEventListener('DOMContentLoaded', function() {
 
-    class Paragraph  extends React.Component {
+    class Paragraph extends React.Component {
+        state = {
+            visible: false,
+        }
 
-        componentDidMount(){
+        componentDidMount() {
             window.addEventListener("scroll", this.show);
 
         }
 
-            show = ()=>{
+        componentDidUpdate(prevProps, prev) {
+            if (prev.visible === false && this.state.visible === true) {
+                this.props.upDate(true, "show");
+                // this.props.imgUpDate('show');
+            } else if (prev.visible === true && this.state.visible === false) {
+                this.props.upDate(false, "image");
+                // this.props.imgUpDate('image');
+            }
 
-                        const myBox = this.element;
-                        const topPos = myBox.getBoundingClientRect().top;
-                        const bottomPos = myBox.getBoundingClientRect().top + myBox.clientHeight;
-                        // const logo = document.getElementById('img');
+        }
 
+        show = () => {
 
+            const myBox = this.element;
+            const topPos = myBox.getBoundingClientRect().top;
+            const bottomPos = myBox.getBoundingClientRect().bottom;
 
-                    if (document.body.scrollTop >= topPos && document.body.scrollTop <= bottomPos && this.props.children.includes("can")) {
-                        logo.classList = 'show';
-                    }else{
-                        logo.classList = 'image';
-                    }
+            console.log(topPos);
+            console.log(bottomPos);
+            // const logo = document.getElementById('img');
 
+            if (window.innerHeight > topPos && 0 < bottomPos && this.props.children.includes("can")) {
+                // this.props.upDate(true);
+                this.setState({visible: true});
 
+                // wywołuję funkcję z parenta
+
+            } else {
+                // this.props.upDate(false);
+                // logo.classList = 'image';
+                this.setState({visible: false});
 
             }
-            render(){
-                return <p
-                    ref={i=> this.element = i }>{this.props.children}</p>;
-            }
+
+        }
+        render() {
+            return <p ref={i => this.element = i}>{this.props.children}</p>;
+        }
     }
-
 
     class JokesList extends React.Component {
         constructor() {
             super();
             this.state = {
                 jokes: [],
-
+                imgClassName: 'image',
             }
         }
         componentDidMount() {
-            fetch(`http://api.icndb.com/jokes`)
-            .then(r => r.json())
-            .then(data => {
+            fetch(`http://api.icndb.com/jokes`).then(r => r.json()).then(data => {
 
                 let objects = data.value;
 
-                    this.setState({
-                        jokes:objects,
-                    })
+                this.setState({jokes: objects})
 
             });
 
-    }
+        }
 
-        updateParagraph = () =>{
+        updateParagraph = (isInView, className) => {
+            console.log(isInView);
+            this.setState({
+                imgClassName: className,
+            })
 
         }
 
-    render() {
+        render() {
 
-        const background = "wp.png";
-        const jokes = this.state.jokes.map( joke => {
-            return <Paragraph key={joke.id}
-                upDate={this.updateParagraph}>{joke.joke}</Paragraph>;
-        });
-        return <div className="jokes">
-            {jokes}
-            <img src="http://sgpnarodowy.pl/wp-content/uploads/2014/11/sgp_logo_wirtualnapolska1.png"
-                id="img"
-                className="image"/>
-        </div>;
+            const background = "wp.png";
+            const jokes = this.state.jokes.map(joke => {
+                return <Paragraph key={joke.id} upDate={this.updateParagraph}>{joke.joke}</Paragraph>;
+            });
+            return <div className="jokes">
+                {jokes}
+                <img src="http://sgpnarodowy.pl/wp-content/uploads/2014/11/sgp_logo_wirtualnapolska1.png" id="img"
+                    className={this.state.imgClassName}/>
+            </div>;
 
-
+        }
     }
-}
 
-ReactDOM.render(
-    <JokesList/>,
-     document.getElementById('app'));
+    ReactDOM.render(
+        <JokesList/>, document.getElementById('app'));
 
 });
